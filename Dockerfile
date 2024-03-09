@@ -5,7 +5,7 @@ FROM tomcat:9.0-jdk11-openjdk
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy your StudentSurvey.war file to the webapps directory in the container
-COPY StudentSurvey.war /usr/local/tomcat/webapps/
+COPY survey645.war /usr/local/tomcat/webapps/
 
 # Tomcat listens on port 8080
 EXPOSE 8080
