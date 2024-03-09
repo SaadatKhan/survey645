@@ -9,6 +9,18 @@ pipeline {
     }
 
     stages {
+          stage('Prepare Application') {
+            steps {
+                script {
+                    // Clean up any previous .war file
+                    sh 'rm -f survey645.war'
+                    
+                    // Package a new .war file
+                    // Assuming all files needed for the war are in the root directory
+                    sh 'jar -cvf survey645.war *'
+                }
+            }
+        
         stage('Build Docker Image') {
             steps {
                 script {
