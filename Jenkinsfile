@@ -34,7 +34,7 @@ pipeline {
                 script {
                     // Assuming you have a deployment.yaml that needs the image to be set
                     // Replace the image in the Kubernetes deployment with the new version
-                    withCredentials([file(credentialsId: 'my-kube-cluster', variable: 'KUBECONFIG')]) {
+                    withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
                         sh """
                            kubectl set image deployment/survey645-deployment survey645=${DOCKER_IMAGE}:${VERSION} --record
                            """
