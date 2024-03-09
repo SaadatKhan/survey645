@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Define your Docker image name here
-        DOCKER_IMAGE = 'saadatkhan/ssurvey'
+        DOCKER_IMAGE = 'saadatkhan/survey645'
         // Define the version/tag. Using Jenkins build number for uniqueness
         VERSION = "latest"
     }
@@ -36,7 +36,7 @@ pipeline {
                     // Replace the image in the Kubernetes deployment with the new version
                     withCredentials([file(credentialsId: 'my-kube-cluster', variable: 'KUBECONFIG')]) {
                         sh """
-                           kubectl set image deployment/ssurvey-deployment ssurvey=${DOCKER_IMAGE}:${VERSION} --record
+                           kubectl set image deployment/survey645-deployment survey645=${DOCKER_IMAGE}:${VERSION} --record
                            """
                     }
                 }
