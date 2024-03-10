@@ -20,6 +20,7 @@ pipeline {
                     sh 'jar -cvf survey645.war *'
                 }
             }
+          }
         
         stage('Build Docker Image') {
             steps {
